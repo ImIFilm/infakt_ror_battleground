@@ -4,19 +4,20 @@ class PassedOrFailed
         @val=val
     end
 
-    def result
+    def perform
         p=Hash.new
         f=Hash.new
         @students.each do |key, value|
-            if value>=@val.to_i
-                p[key] = value
+            if value.to_i>=@val.to_i
+                p[key] = value.to_i
             else 
-                f[key] = value
+                f[key] = value.to_i
             end
         end
-        res=Hash.new
-        res[:passed]=p
-        res[:failed]=f
-        puts result
+        results=Hash.new
+        results[:passed]=p
+        results[:failed]=f
+        return results
     end
+
 end
